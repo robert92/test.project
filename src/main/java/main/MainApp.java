@@ -1,8 +1,12 @@
 package main;
 
+import streams.StreamsApp;
+
 public class MainApp {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        StreamsApp streamsApp = new StreamsApp();
+        streamsApp.test1();
+        streamsApp.test2();
     }
 }
