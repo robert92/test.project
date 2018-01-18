@@ -1,13 +1,15 @@
 package data;
 
-public class Human {
+import java.util.Comparator;
+
+public class HumanComparable implements Comparable {
 
     private String firstname;
     private String surname;
     private Integer age;
     private HumanGender gender;
 
-    public Human(String firstname, String surname, Integer age, HumanGender gender) {
+    public HumanComparable(String firstname, String surname, Integer age, HumanGender gender) {
         this.firstname = firstname;
         this.surname = surname;
         this.age = age;
@@ -48,11 +50,21 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "HumanComparable{" +
                 "firstname='" + firstname + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", gender=" + gender +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        HumanComparable hc = (HumanComparable) o;
+        Comparator comparator = Comparator.comparing(HumanComparable::getFirstname)
+                .thenComparing(HumanComparable::getSurname)
+                .thenComparing(HumanComparable::getAge)
+                .thenComparing(HumanComparable::getGender);
+        return comparator.compare(this, hc);
     }
 }
