@@ -2,6 +2,7 @@ package main;
 
 import collections.CollectionsApp;
 import streams.StreamsApp;
+import test.C;
 
 public class MainApp {
 
@@ -18,5 +19,8 @@ public class MainApp {
         collectionsApp.test3();
         collectionsApp.test4();
         collectionsApp.test5();
+
+        C c = new C();
+        c.test();
     }
 }
